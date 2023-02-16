@@ -22,6 +22,7 @@ using namespace std;
  check=target2.health;
  std::cout<<name <<"hits their target "<<target2.name<<" who is now at "<<check <<" HP.\n";
  }
+
  }
 
 
@@ -39,6 +40,7 @@ int main()
     Dan=Rolfor.attack(Dan);
     Dan.check2(Rolfor);
     Rolfor.check2(Dan);
+    cout<<"Check \n";
     }
 
     }
