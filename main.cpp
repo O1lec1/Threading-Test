@@ -16,6 +16,7 @@ using namespace std;
          if(rand()%50>20)
          {
             target.health -= rand()%30;
+            if(target.health<0)target.health=0;
             std::cout<<name <<" hits their target "<<target.name<<" who is now at "<<target.health<<" HP.\n";
          }
      }
