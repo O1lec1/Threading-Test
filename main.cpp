@@ -35,8 +35,27 @@ using namespace std;
 
 //};
 
+void server(){
+sf::TcpListener listner;
+unsigned short port = 2845;
+if (listner.listen(port)!= sf::Socket::Done){
+std::cout<<"Error Accepting\n";
+return;
+}
+}
+void client(){
+sf::TcpSocket socket;
+if listener.accept(socket)==sf::Socket::Done){
+doSomethingWith(socket);
 
+}
+sf::Packet packet;
+status = socket.receive(packet)
+std::string message;
+packet>>message;
+std::cout<<message;
 
+}
 using std::chrono::duration_cast;
 using std::chrono::milliseconds;
 using std::chrono::seconds;
