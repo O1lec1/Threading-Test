@@ -1,7 +1,8 @@
 #include <iostream>
 #include <thread>
-#include sf::TcpListner
-#include sf::TcpSocket
+#include <SFML/Graphics.hpp>
+#include <SFML/Network/TcpListener.hpp>
+#include <SFML/Network/Socket.hpp>
 using namespace std;
 //class combatant{
 //public:
@@ -42,19 +43,11 @@ using std::chrono::seconds;
 using std::chrono::system_clock;
 int main()
 {
-    std::thread([]{
+    std::thread([]{}
 
-            std::this_thread::sleep_for(std::chrono::milliseconds(10);
-        }
 
-        }
     ).detach();
-    std::thread([]{
-
-        }
-
-        }
-    ).join();
+    std::thread([]{}).join();
 //    cout.flush();
     std::cout << "Fin\n";
     return 0;
