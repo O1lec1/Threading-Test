@@ -1,8 +1,8 @@
 #include <iostream>
 #include <thread>
 #include <SFML/Graphics.hpp>
-#include <SFML/Network/TcpListener.hpp>
-#include <SFML/Network/Socket.hpp>
+#include <SFML/Network.hpp>
+
 using namespace std;
 //class combatant{
 //public:
@@ -36,37 +36,106 @@ using namespace std;
 //};
 
 void server(){
-sf::TcpListener listner;
-unsigned short port = 2845;
-if (listner.listen(port)!= sf::Socket::Done){
-std::cout<<"Error Accepting\n";
-return;
+    // queue of messages
+    // map/list (socket*)
+    sf::TcpListener listner;
+    unsigned short port = 2845;
+    sf::Socket::Status status;
+
+    // LISTEN
+    status = listner.listen(port);
+    if (status != sf::Socket::Done){
+        std::cout<<"Error Listening\n";
+        return;
+    }
+
+    // spawn new accepter thread (queue, map)
+
+    // dequeue messages (blocking)
+    // send message to the whole map
+
+    // ACCEPTer thread (knows the queue and a map of clients)
+    // needs to move to *socket
+    sf::TcpSocket socket;
+    status = listner.accept(socket);
+    if (status != sf::Socket::Done){
+        std::cout<<"Error Accepting\n";
+        return;
+    }
+
+    // spawn new receive thread(queue)
+    // add socket to client map
+
+    // RECEIVE thread (knows the queue)
+    sf::Packet packet;
+    socket.receive(packet);
+    if (status != sf::Socket::Done){
+        std::cout<<"Error Receiving\n";
+        return;
+    }
+    std::string msg;
+    packet >> msg;
+    std::cout << msg;
+    // enqueue message
+
+    // SEND
+    packet.clear();
+    packet << "server msg\n";
+    socket.send(packet);
+    if (status != sf::Socket::Done){
+        std::cout<<"Error Sending\n";
+        return;
+    }
 }
-}
+
 void client(){
-sf::TcpSocket socket;
-if listener.accept(socket)==sf::Socket::Done){
-doSomethingWith(socket);
 
-}
-sf::Packet packet;
-status = socket.receive(packet)
-std::string message;
-packet>>message;
-std::cout<<message;
+    // CONNECT
+    sf::TcpSocket socket;
+    sf::Socket::Status status;
+    sf::IpAddress address("152.105.67.126"); // ifconfig
+    status = socket.connect(address, 2845);
+    if (status != sf::Socket::Done){
+        std::cout<<"Error Connecting\n";
+        return;
+    }
 
+    // queue
+    // spawn receive thread
+    // except that we just want to print messages
+
+    // SENDING
+    // reading std::cin
+    sf::Packet packet;
+    packet << "client sent\n";
+    status = socket.send(packet);
+    if (status != sf::Socket::Done){
+        std::cout<<"Error Sending\n";
+        return;
+    }
+
+
+    // RECEIVING thread
+    status = socket.receive(packet);
+    if (status != sf::Socket::Done){
+        std::cout<<"Error Receiving\n";
+        return;
+    }
+    std::string message;
+    packet>>message;
+    std::cout<<message;
 }
-using std::chrono::duration_cast;
-using std::chrono::milliseconds;
-using std::chrono::seconds;
-using std::chrono::system_clock;
+//using std::chrono::duration_cast;
+//using std::chrono::milliseconds;
+//using std::chrono::seconds;
+//using std::chrono::system_clock;
+
 int main()
 {
-    std::thread([]{}
-
-
-    ).detach();
-    std::thread([]{}).join();
+    std::thread serverThread(&server);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1));
+    client();
+    serverThread.join();
 //    cout.flush();
     std::cout << "Fin\n";
     return 0;

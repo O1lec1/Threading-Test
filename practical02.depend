@@ -359,9 +359,11 @@
 	<string>
 	<vector>
 
-1676551570 source:/home/scm-studs/b1061859/Desktop/practical02CodeBlocks/main.cpp
+1677760188 source:/home/scm-studs/b1061859/Desktop/practical02CodeBlocks/main.cpp
 	<iostream>
 	<thread>
+	<SFML/Graphics.hpp>
+	<SFML/Network.hpp>
 
 1676549047 source:/home/scm-studs/b1061859/Desktop/practical02CodeBlocks/bb.cpp
 	<cstring>
@@ -371,4 +373,75 @@
 	<condition_variable>
 	<chrono>
 	<thread>
+
+1435661976 /usr/local/SFML-2.2/include/SFML/Network.hpp
+	<SFML/System.hpp>
+	<SFML/Network/Ftp.hpp>
+	<SFML/Network/Http.hpp>
+	<SFML/Network/IpAddress.hpp>
+	<SFML/Network/Packet.hpp>
+	<SFML/Network/SocketSelector.hpp>
+	<SFML/Network/TcpListener.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/Network/UdpSocket.hpp>
+
+1435661976 /usr/local/SFML-2.2/include/SFML/Network/Ftp.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+
+1435661976 /usr/local/SFML-2.2/include/SFML/Network/Export.hpp
+	<SFML/Config.hpp>
+
+1435661976 /usr/local/SFML-2.2/include/SFML/Network/TcpSocket.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/Socket.hpp>
+	<SFML/System/Time.hpp>
+
+1435661976 /usr/local/SFML-2.2/include/SFML/Network/Socket.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/SocketHandle.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<vector>
+
+1435661976 /usr/local/SFML-2.2/include/SFML/Network/SocketHandle.hpp
+	<SFML/Config.hpp>
+	<basetsd.h>
+
+1435661976 /usr/local/SFML-2.2/include/SFML/Network/Http.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/IpAddress.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<map>
+	<string>
+
+1435661976 /usr/local/SFML-2.2/include/SFML/Network/IpAddress.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/System/Time.hpp>
+	<istream>
+	<ostream>
+	<string>
+
+1435661976 /usr/local/SFML-2.2/include/SFML/Network/Packet.hpp
+	<SFML/Network/Export.hpp>
+	<string>
+	<vector>
+
+1435661976 /usr/local/SFML-2.2/include/SFML/Network/SocketSelector.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1435661976 /usr/local/SFML-2.2/include/SFML/Network/TcpListener.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/Socket.hpp>
+
+1435661976 /usr/local/SFML-2.2/include/SFML/Network/UdpSocket.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/Socket.hpp>
+	<vector>
 
