@@ -34,22 +34,7 @@
 
 
     //};
-    class queue{
-    public:
-        sf::TcpSocket insocket;
-        int nummesmax=8;
-        bool blockin=false;
-        bool blockout=false;
-        bool op=false;
-        int current=0;
-        int in=0;
-        vector<sf::Packet> queueps;
-        void tick(sf::Packet grab){
-            if(sizeof(queueps)<nummesmax){
-                cout<<"Under\n";
-            }
-        }
-        };
+
     void server(){
         // queue of messages
         // map/list (socket*)
@@ -72,7 +57,7 @@
         // ACCEPTer thread (knows the queue and a map of clients)
         // needs to move to *socket
         sf::TcpSocket socket;
-        queue mainqueue();
+
         status = listner.accept(socket);
         if (status != sf::Socket::Done){
             std::cout<<"Error Accepting\n";
@@ -84,7 +69,7 @@
 
         // RECEIVE thread (knows the queue)
         sf::Packet packet;
-        mainqueue.tick(packet);
+
         socket.receive(packet);
         if (status != sf::Socket::Done){
             std::cout<<"Error Receiving\n";
@@ -118,7 +103,7 @@
         }
 
         // queue
-        queue clientqueue();
+
         // spawn receive thread
         // except that we just want to print messages
 
