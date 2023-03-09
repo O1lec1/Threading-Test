@@ -359,11 +359,12 @@
 	<string>
 	<vector>
 
-1678352676 source:/home/scm-studs/b1061859/Desktop/practical02CodeBlocks/main.cpp
+1678365248 source:/home/scm-studs/b1061859/Desktop/practical02CodeBlocks/main.cpp
 	<iostream>
 	<thread>
 	<SFML/Graphics.hpp>
 	<SFML/Network.hpp>
+	"queuec.h"
 
 1676549047 source:/home/scm-studs/b1061859/Desktop/practical02CodeBlocks/bb.cpp
 	<cstring>
@@ -444,4 +445,12 @@
 	<SFML/Network/Export.hpp>
 	<SFML/Network/Socket.hpp>
 	<vector>
+
+1678362823 source:/home/scm-studs/b1061859/Desktop/practical02CodeBlocks/src/queuec.cpp
+	"queuec.h"
+
+1678364570 /home/scm-studs/b1061859/Desktop/practical02CodeBlocks/include/queuec.h
+	<condition_variable>
+	<mutex>
+	<queue>
 

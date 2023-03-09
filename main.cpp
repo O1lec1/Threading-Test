@@ -2,7 +2,7 @@
     #include <thread>
     #include <SFML/Graphics.hpp>
     #include <SFML/Network.hpp>
-
+    #include "queuec.h"
     using namespace std;
     //class combatant{
     //public:
@@ -39,7 +39,7 @@
         // queue of messages
         // map/list (socket*)
         sf::TcpListener listner;
-        unsigned short port = 2845;
+        unsigned short port = 2847;
         sf::Socket::Status status;
 
         // LISTEN
