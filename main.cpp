@@ -2,7 +2,14 @@
     #include <thread>
     #include <SFML/Graphics.hpp>
     #include <SFML/Network.hpp>
-    #include "queuec.h"
+    #include "accepter.h"
+    #include "client.h"
+    #include "list.h"
+    #include "queue.h"
+    #include "recever.h"
+    #include "server.h"
+    #include "util.h"
+    //#include "queuec.h"
     using namespace std;
     //class combatant{
     //public:
@@ -35,7 +42,7 @@
 
     //};
 
-    void server(){
+    void serverproto(){
         // queue of messages
         // map/list (socket*)
         sf::TcpListener listner;
@@ -90,7 +97,7 @@
         }
     }
 
-    void client(){
+    void clientproto(){
 
         // CONNECT
         sf::TcpSocket socket;
