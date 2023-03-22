@@ -3,7 +3,23 @@
     #include <SFML/Graphics.hpp>
     #include <SFML/Network.hpp>
     //#include "queuec.h"
-
+    //Port solution
+    #include <fstream>
+    int port(){
+    std::string porthold;
+    try{
+    std::ifstream porthole("Portsolution.txt");
+    int checkdigit=0;
+    while (getline (porthole, porthold)) {
+    if(checkdigit<1)
+    std::cout<<porthold<<"/ \n";
+    checkdigit++;
+    }
+    }
+    catch(...){
+    std::cout<<"Missing ports";
+    }
+    }
     //queue------------------
     #ifndef QUEUE_HPP //ifnot add QUEUE_HPP
     #define QUEUE_HPP
@@ -163,6 +179,7 @@
 
     int main()
     {
+        port();
         std::thread serverThread(&server);
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
         client();
