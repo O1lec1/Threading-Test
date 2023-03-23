@@ -10,8 +10,10 @@
     try{
     std::ifstream porthole("Portsolution.txt");
     int checkdigit=0;
+    int select=0;
     while (getline (porthole, porthold)) {
     if(checkdigit<1)
+    else
     std::cout<<porthold<<"/ \n";
     checkdigit++;
     }
