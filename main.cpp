@@ -3,25 +3,51 @@
     #include <SFML/Graphics.hpp>
     #include <SFML/Network.hpp>
     //#include "queuec.h"
+
     //Port solution
     #include <fstream>
-    int port(){
-    std::string porthold;
+    std::vector<std::string>previousfile;
+    int setport(){
+    int portout;
+        std::string porthold;
     try{
-    std::ifstream porthole("Portsolution.txt");
-    int checkdigit=0;
-    int select=0;
-    while (getline (porthole, porthold)) {
-    if(checkdigit<1)
-    else
-    std::cout<<porthold<<"/ \n";
+        std::ifstream porthole("Portsolution.txt");
+        int checkdigit=0;
+        int select=0;
+        while (getline (porthole, porthold)) {
+            if(checkdigit<1) select=stoi(porthold);
+            else previousfile.push_back(porthold);
+            if (checkdigit==select){
+    //::cout<<porthold<<"/ \n";
+            portout=stoi(porthold);
+            }
+
     checkdigit++;
     }
+    porthole.close();
+    std::ofstream portin ("Portsolution.txt");
+    //std::cout<<"\n - \n";
+    if (select+1<previousfile.size()){
+    //std::cout<<select+1<<"\n";
+    portin<<select+1<<"\n";
+    }
+    else {
+    //std::cout<<1<<"\n";
+    portin<<1<<"\n";}
+    for(std::string i:previousfile){
+    portin <<i<<"\n";
+    //std::cout<<i<<"\n";
+    }
+
+    portin.close();
     }
     catch(...){
     std::cout<<"Missing ports";
     }
+                return(portout);
     }
+    int port;
+    //-------------
     //queue------------------
     #ifndef QUEUE_HPP //ifnot add QUEUE_HPP
     #define QUEUE_HPP
@@ -85,7 +111,7 @@
         Queue<sf::Packet> mainqueue;
         // map/list (socket*)
         sf::TcpListener listner;
-        unsigned short port = 1067;
+        unsigned short port = port;
         sf::Socket::Status status;
 
         // LISTEN
@@ -142,9 +168,10 @@
         sf::TcpSocket socket;
         sf::Socket::Status status;
         sf::IpAddress address("152.105.67.126"); // ifconfig
-        status = socket.connect(address, 1067);
+        //sf::IpAddress address("localhost");
+        status = socket.connect(address, port);
         if (status != sf::Socket::Done){
-            std::cout<<"Error Connecting\n";
+            std::cout<<"Error Connecting to port {"<<port<<"} \n";
             return;
         }
 
@@ -181,7 +208,8 @@
 
     int main()
     {
-        port();
+        port=setport();
+        std::cout<<port <<": Port \n";
         std::thread serverThread(&server);
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
         client();
