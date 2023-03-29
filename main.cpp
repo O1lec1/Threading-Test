@@ -44,9 +44,11 @@
     catch(...){
     std::cout<<"Missing ports";
     }
+                std::cout<<"cav-->\n";
                 return(portout);
     }
     int port;
+    unsigned short portshort = port;
     //-------------
     //queue------------------
     #ifndef QUEUE_HPP //ifnot add QUEUE_HPP
@@ -111,11 +113,11 @@
         Queue<sf::Packet> mainqueue;
         // map/list (socket*)
         sf::TcpListener listner;
-        unsigned short port = port;
+
         sf::Socket::Status status;
 
         // LISTEN
-        status = listner.listen(port);
+        status = listner.listen(portshort);
         if (status != sf::Socket::Done){
             std::cout<<"Error Listening\n";
             return;
@@ -169,7 +171,7 @@
         sf::Socket::Status status;
         sf::IpAddress address("152.105.67.126"); // ifconfig
         //sf::IpAddress address("localhost");
-        status = socket.connect(address, port);
+        status = socket.connect(address, portshort);
         if (status != sf::Socket::Done){
             std::cout<<"Error Connecting to port {"<<port<<"} \n";
             return;
