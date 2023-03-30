@@ -15,6 +15,7 @@
 					<Add option="-std=c++1y" />
 					<Add option="-g" />
 					<Add directory="/usr/local/SFML-2.2/include" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add library="jpeg" />
@@ -36,6 +37,7 @@
 					<Add option="-O2" />
 					<Add option="-std=c++1y" />
 					<Add directory="/usr/local/SFML-2.2/include" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -55,8 +57,10 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="bb.cpp" />
+		<Unit filename="include/queuec.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="queue.h" />
+		<Unit filename="src/queuec.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
