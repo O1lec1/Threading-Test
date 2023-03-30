@@ -2,7 +2,7 @@
     #include <thread>
     #include <SFML/Graphics.hpp>
     #include <SFML/Network.hpp>
-    #include "queuec.h"
+    //#include "queuec.h"
     using namespace std;
     void server(){
         // queue of messages
