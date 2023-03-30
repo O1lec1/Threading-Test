@@ -44,10 +44,11 @@
     catch(...){
     std::cout<<"Missing ports";
     }
-                std::cout<<"cav-->\n";
+                //std::cout<<"cav-->\n";
                 return(portout);
     }
-    int port;
+
+    int port=setport();
     unsigned short portshort = port;
     //-------------
     //queue------------------
@@ -210,7 +211,7 @@
 
     int main()
     {
-        port=setport();
+
         std::cout<<port <<": Port \n";
         std::thread serverThread(&server);
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
