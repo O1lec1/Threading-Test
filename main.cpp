@@ -2,14 +2,14 @@
     #include <thread>
     #include <SFML/Graphics.hpp>
     #include <SFML/Network.hpp>
-    #include "accepter.h"
-    #include "client.h"
-    #include "list.h"
-    #include "queue.h"
-    #include "recever.h"
-    #include "server.h"
-    #include "util.h"
-    //#include "queuec.h"
+//    #include "accepter.h"
+//    #include "client.h"
+//    #include "list.h"
+//    #include "queue.h"
+//    #include "recever.h"
+//    #include "server.h"
+//    #include "util.h"
+//    //#include "queuec.h"
     using namespace std;
     //class combatant{
     //public:
@@ -142,9 +142,9 @@
 
     int main()
     {
-        std::thread serverThread(&server);
+        std::thread serverThread(serverproto());
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
-        client();
+        clientproto();
         serverThread.join();
     //    cout.flush();
         std::cout << "Fin\n";
