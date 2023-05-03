@@ -32,7 +32,7 @@ Echocheck::Echocheck(){
 bool serveout(){
 while (1){
 if (socket.receive(data,sender,sender_port)!= sf::Socket::Done)
-{
+{return(true);
 // error...
 }
 if (socket.send(data,sender,sender_port)!= sf::Socket::Done){
@@ -60,5 +60,6 @@ sf::IpAddress sender;
 if (socket.receive(data, received,  port)!= sf::Socket::Done){
 // error...
 }std::cout << "Received " << received << " bytes from "<< sender << " on port " << port << std::endl;
+return(true);
 }
 

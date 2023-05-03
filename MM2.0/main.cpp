@@ -59,7 +59,8 @@ sf::IpAddress sender;
 unsigned short port;
 unsigned short sender_port;
 using namespace sf;
-Echocheck startuppro;
+
+
 
     //if (socket.bind(1634) != sf::Socket::Done){// error...}
     std::string textblocker;
@@ -68,8 +69,19 @@ Echocheck startuppro;
     std::cout<<"\n When Ready To Proceed, Input Y";
     std::cin>>textblocker;
     }
-    startuppro.serveout();
-    startuppro.Echocheck();
+    std::thread( []{
+    Echocheck side;
+    side::Clientin();
+    //side.serveout();
+
+    }).detach();
+    std::this_thread::sleep_for(std::chrono::milliseconds(1));
+    //Echocheck startuppro;
+    //startuppro.Clientin();
+    //serverThread.join();
+
+
+
 
     // ****************************************
     // Initialise
