@@ -23,8 +23,8 @@ class Echocheck
 {
     public:
         Echocheck();
-        bool Clientin();
-        bool serveout();
+        void Clientin();
+        void serveout();
     protected:
 
     private:

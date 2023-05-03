@@ -29,10 +29,10 @@ Echocheck::Echocheck(){
    }
 }
    //Server
-bool serveout(){
+void serveout(){
 while (1){
 if (socket.receive(data,sender,sender_port)!= sf::Socket::Done)
-{return(true);
+{//return(true);
 // error...
 }
 if (socket.send(data,sender,sender_port)!= sf::Socket::Done){
@@ -41,7 +41,7 @@ if (socket.send(data,sender,sender_port)!= sf::Socket::Done){
 }
 
 }
-bool Clientin(){
+void Clientin(){
 //The client
 sf::UdpSocket socket;
 //char data[100] ;
@@ -60,6 +60,6 @@ sf::IpAddress sender;
 if (socket.receive(data, received,  port)!= sf::Socket::Done){
 // error...
 }std::cout << "Received " << received << " bytes from "<< sender << " on port " << port << std::endl;
-return(true);
+//return(true);
 }
 

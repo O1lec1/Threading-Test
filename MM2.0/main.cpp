@@ -13,6 +13,7 @@
 #include "Echocheck.h"
 
 
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Network.hpp>
 
@@ -71,7 +72,7 @@ using namespace sf;
     }
     std::thread( []{
     Echocheck side;
-    side::Clientin();
+    side.EClientin();
     //side.serveout();
 
     }).detach();
