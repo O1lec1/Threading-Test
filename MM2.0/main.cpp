@@ -55,11 +55,13 @@ struct Car
 
 int main()
 {
-sf::UdpSocket socket;
-sf::IpAddress sender;
-unsigned short port;
-unsigned short sender_port;
-using namespace sf;
+    sf::UdpSocket socket;
+    sf::IpAddress sender;
+    unsigned short port;
+    unsigned short sender_port;
+    using namespace sf;
+
+    //side.Clientin(1);
 
 
 
@@ -67,18 +69,16 @@ using namespace sf;
     std::string textblocker;
     while(not (textblocker=="y" or textblocker=="Y" )){
 
-    std::cout<<"\n When Ready To Proceed, Input Y";
-    std::cin>>textblocker;
+        std::cout<<"\n When Ready To Proceed, Input Y";
+        std::cin>>textblocker;
     }
     std::thread( []{
-    Echocheck side;
-    side.EClientin();
-    //side.serveout();
-
+        Echocheck side(true);
+        side.serveout();
     }).detach();
-    std::this_thread::sleep_for(std::chrono::milliseconds(1));
-    //Echocheck startuppro;
-    //startuppro.Clientin();
+    //std::this_thread::sleep_for(std::chrono::milliseconds(30));
+    Echocheck startuppro;
+    startuppro.Clientin(1);
     //serverThread.join();
 
 

@@ -22,8 +22,8 @@
 class Echocheck
 {
     public:
-        Echocheck();
-        void Clientin();
+        Echocheck(bool isServer = false);
+        void Clientin(int a);
         void serveout();
     protected:
 
