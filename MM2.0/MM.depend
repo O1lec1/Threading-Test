@@ -507,9 +507,10 @@
 	<cmath>
 	<iostream>
 
-1683630361 source:/home/scm-studs/b1061859/Desktop/practical02CodeBlocks/MM2.0/src/Echocheck.cpp
+1683649606 source:/home/scm-studs/b1061859/Desktop/practical02CodeBlocks/MM2.0/src/Echocheck.cpp
 	<chrono>
 	<cstring>
+	<string>
 	<thread>
 	<string>
 	"Echocheck.h"
@@ -519,7 +520,7 @@
 	<cmath>
 	<iostream>
 
-1683627587 /home/scm-studs/b1061859/Desktop/practical02CodeBlocks/MM2.0/include/Echocheck.h
+1683649612 /home/scm-studs/b1061859/Desktop/practical02CodeBlocks/MM2.0/include/Echocheck.h
 	<chrono>
 	<cstring>
 	<thread>
@@ -529,7 +530,7 @@
 	<cmath>
 	<iostream>
 
-1683633121 source:/home/scm-studs/b1061859/Desktop/practical02CodeBlocks/MM2.0/main.cpp
+1683649823 source:/home/scm-studs/b1061859/Desktop/practical02CodeBlocks/MM2.0/main.cpp
 	"accepter.h"
 	"queue.h"
 	"list.h"

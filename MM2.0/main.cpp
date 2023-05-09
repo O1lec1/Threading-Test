@@ -67,6 +67,8 @@ int main()
 
     //if (socket.bind(1634) != sf::Socket::Done){// error...}
     std::string textblocker;
+    int inudpoption =0;
+    while ((inudpoption==0)){
     while(not (textblocker=="y" or textblocker=="Y" )){
 
         std::cout<<"\n When Ready To Proceed, Input Y";
@@ -78,14 +80,55 @@ int main()
     //}).detach();
     std::thread( []{
         Echocheck side(true);
-        side.serveout();
+        bool connectionserver=side.serveout();
+        std::cout<<connectionserver<<" Server . \n";
+        if(connectionserver)
+        {
+        std::cout<<"switching to tcp \n";
+        }
+        //else{side.closeout();}
     }).detach();
     //serverThread.join();
 
-    Echocheck startuppro;
-    startuppro.Clientin(1);
+    Echocheck startuppro(false);
+
+    bool connectionclient = startuppro.Clientin(1);
+    std::cout<<connectionclient<<" Client . \n";
+    if (connectionclient){
+    //UDP based connection
+    inudpoption=3;
+    }
+    else{
+    std::cout<<"The UDP based connection has failed.\nWould you like to try again[0]\nrun singleplayer[1]? \nor run a manuel connection[2]?"<<"\n"<<"Please enter a number:  ";
+    std::cin>>inudpoption;
+    }
+}
+if(inudpoption==2){
+int choice1=0;
+while((choice1!=1) && (choice1!=2)){
+std::cout<<"To get started, will I be the server[1] or will your opponent[2]? \n  : ";
+std::cin>>choice1;
+}
+if(choice1==1){
+Echocheck freshserver;
 
 
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+if(inudpoption==1){
     // ****************************************
     // Initialise
     srand(time(NULL));
@@ -201,4 +244,4 @@ int main()
     }
 
     return 0;
-}
+}}

@@ -38,8 +38,16 @@ Echocheck::Echocheck(bool isServer){
         std::cout<<"\n : "<<socket.isBlocking()<<"\n";
 	}
 }
+void closeout(){
+//try{socket.close();}
+//atch(...){std::cout<<"Port Locked :"<<portchange<<"\n";}
+
+//Whatever issue is causing all udps to fail, also locked them up, Closing them doesnt even work.--------------
+
+
+}
 //Server
-void Echocheck::serveout(){
+bool Echocheck::serveout(){
 
 	sf::Packet packet;
 	packet.clear();
@@ -50,7 +58,10 @@ void Echocheck::serveout(){
 	//auto Status = bind (unsigned short port,const IpAddress &address=IpAddress::Any);
 	//while(socket.NotReady)std::cout <<".";
 	std::cout <<"\n";
-	while (remoteAddress == sf::IpAddress::None){
+
+	int trys=100;
+	while ((remoteAddress == sf::IpAddress::None )&&(trys>0)){
+	trys--;
 	while (statusvar!= socket.Done){
         packet.clear();
         socket.setBlocking(true);
@@ -79,7 +90,7 @@ void Echocheck::serveout(){
 
 
 }
-void Echocheck::Clientin(int a){
+bool Echocheck::Clientin(int a){
 	//The client
 	sf::UdpSocket socket;
 	//char data[100] ;
@@ -97,7 +108,7 @@ void Echocheck::Clientin(int a){
 	sf::IpAddress sender;
 	//unsigned short port;
 
-	while (data.getDataSize()==0){
+	//while (data.getDataSize()==0){
 	std::cout<<"["<<std::to_string(data.getDataSize())<<"]\n";
 	std::cout<<"-1-\n";
 	sf::Socket::Status statusvar;
@@ -108,13 +119,23 @@ void Echocheck::Clientin(int a){
 	if (statusvar == sf::Socket::Error)
 	{
 		std::cout << "Error Sending UDP\n";
-            return;
+            return(false);
+	}
+	else if (statusvar == sf::Socket::Disconnected)
+	{
+		std::cout << "EDisconnected";
+            return(false);
+	}
+	else if (statusvar == sf::Socket::NotReady)
+	{
+		std::cout << "EAwait";
+            return(false);
 	}
 	}
 	std::cout<<"-2-\n";
-	sf::Packet data;
+//	sf::Packet data;
 	// UDP socket:
-	sf::IpAddress sender;
+//	sf::IpAddress sender;
 	//unsigned short port;
 
 	//if (socket.receive(data, sender,  port)== sf::Socket::Done){
@@ -127,6 +148,19 @@ void Echocheck::Clientin(int a){
 	//std::cout << "Received " << received << " bytes from "<< sender << " on port " << port << std::endl;
 	//return(true);#
 	socket.setBlocking(false);
-	socket.receive(data, sender,  port);
-}}
+	statusvar = socket.receive(data, sender,  port);
+	std::this_thread::sleep_for(std::chrono::milliseconds(200));
+	if (statusvar!=socket.Done)return(false);
+	else if (statusvar==socket.Done)return(true);
+}
+//}
+//tcp pure manual
+
+void Echocheck::tcpserver(){
+}
+
+
+
+
+
 

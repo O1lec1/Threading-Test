@@ -22,10 +22,13 @@
 class Echocheck
 {
     public:
+        void Client();
+        void tcpserver();
         sf::UdpSocket socket;
+        void closeout();
         Echocheck(bool isServer = false);
-        void Clientin(int a);
-        void serveout();
+        bool Clientin(int a);
+        bool serveout();
     protected:
 
     private:
