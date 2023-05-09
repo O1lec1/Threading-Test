@@ -24,6 +24,7 @@ class Echocheck
     public:
         void Client();
         void tcpserver();
+        sf::TcpSocket tcpsocket;
         sf::UdpSocket socket;
         void closeout();
         Echocheck(bool isServer = false);

@@ -157,6 +157,9 @@ bool Echocheck::Clientin(int a){
 //tcp pure manual
 
 void Echocheck::tcpserver(){
+std::cout<<sf::IpAddress::LocalHost<<" Host Ip\n";
+int randport=2000+(rand()%3000);
+std::cout<<randport<<" Host port\n";
 }
 
 
