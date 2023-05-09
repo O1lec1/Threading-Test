@@ -3,7 +3,7 @@
 #include "list.h"
 #include "receiver.h"
 #include "util.h"
-
+#include <string>
 #include <chrono>
 #include <cstring>
 #include "receiver.h"
@@ -72,16 +72,18 @@ int main()
         std::cout<<"\n When Ready To Proceed, Input Y";
         std::cin>>textblocker;
     }
+
+    //std::thread( []{
+
+    //}).detach();
     std::thread( []{
         Echocheck side(true);
         side.serveout();
     }).detach();
-    //std::this_thread::sleep_for(std::chrono::milliseconds(30));
-    Echocheck startuppro;
-    startuppro.Clientin(1);
     //serverThread.join();
 
-
+    Echocheck startuppro;
+    startuppro.Clientin(1);
 
 
     // ****************************************

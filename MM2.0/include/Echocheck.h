@@ -22,6 +22,7 @@
 class Echocheck
 {
     public:
+        sf::UdpSocket socket;
         Echocheck(bool isServer = false);
         void Clientin(int a);
         void serveout();
