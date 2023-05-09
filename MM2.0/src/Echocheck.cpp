@@ -18,15 +18,17 @@ unsigned short sender_port;
 #include <cmath>
 #include <iostream>
 Echocheck::Echocheck(bool isServer){
-	std::cout<<"ETc Start \n";
+
 
 	sf::UdpSocket socket;
 	sf::IpAddress sender;
 	unsigned short port;
 	char data[100];
 	unsigned short sender_port;
+
 	// bind the socket to a port
 	if (isServer) {
+	std::cout<<"ETc Start 1 \n";
         if (socket.bind(portchange) != sf::Socket::Done){
             std::cout << "Error Socket Binding\n";
             return;
