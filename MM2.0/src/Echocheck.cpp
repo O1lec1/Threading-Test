@@ -190,16 +190,17 @@ void Echocheck::Client()
     std::this_thread::sleep_for(std::chrono::milliseconds(300));
     std::cout<<"Input 'start' to start \nOr 'add' to let another join:  ";
     std::cin>>inputstart;
-    if (inputstart!="add"){
+    if (inputstart=="add"){
     message="add";
     socket.send(message.c_str(), message.size() + 1);
     socket.receive(buffer, sizeof(buffer), received);
     }
-    }
+    else{
     message="start";
     socket.send(message.c_str(), message.size() + 1);
     socket.receive(buffer, sizeof(buffer), received);
-}
+    }
+}}
 void Echocheck::tcpserver()
 {
     sf::IpAddress server = sf::IpAddress::getPublicAddress();
@@ -242,8 +243,10 @@ void Echocheck::tcpserver()
         std::string message = std::to_string(player);
         socket.send(message.c_str(), message.size() + 1);
     }
+    std::cout<<" . ";
+    socket.setBlocking(true);
     socket.receive(buffer, sizeof(buffer), received);
-
+    std::cout<<buffer<<"/ \n";
 
 
 }}
