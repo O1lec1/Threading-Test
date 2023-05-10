@@ -1,6 +1,6 @@
 #ifndef RECEIVER_HPP
 #define RECEIVER_HPP
-
+#include <string>
 #include "queue.h"
 #include <SFML/Network.hpp>
 

@@ -520,17 +520,21 @@
 	<cmath>
 	<iostream>
 
-1683736623 /home/scm-studs/b1061859/Desktop/practical02CodeBlocks/MM2.0/include/Echocheck.h
+1683747219 /home/scm-studs/b1061859/Desktop/practical02CodeBlocks/MM2.0/include/Echocheck.h
 	<chrono>
 	<cstring>
+	<condition_variable>
+	<mutex>
 	<thread>
 	<string>
+	<queue>
+	"queue.h"
 	<SFML/Graphics.hpp>
 	<SFML/Network.hpp>
 	<cmath>
 	<iostream>
 
-1683736351 source:/home/scm-studs/b1061859/Desktop/practical02CodeBlocks/MM2.0/main.cpp
+1683747534 source:/home/scm-studs/b1061859/Desktop/practical02CodeBlocks/MM2.0/main.cpp
 	"accepter.h"
 	"queue.h"
 	"list.h"
@@ -542,6 +546,7 @@
 	"receiver.h"
 	<thread>
 	<string>
+	"queue.h"
 	"Echocheck.h"
 	<SFML/Graphics.hpp>
 	<SFML/Network.hpp>
@@ -553,7 +558,7 @@
 	"list.h"
 	<SFML/Network.hpp>
 
-1683124859 /home/scm-studs/b1061859/Desktop/practical02CodeBlocks/MM2.0/queue.h
+1683745371 /home/scm-studs/b1061859/Desktop/practical02CodeBlocks/MM2.0/queue.h
 	<condition_variable>
 	<mutex>
 	<queue>
@@ -564,7 +569,8 @@
 	<list>
 	<mutex>
 
-1683124859 /home/scm-studs/b1061859/Desktop/practical02CodeBlocks/MM2.0/receiver.h
+1683746506 /home/scm-studs/b1061859/Desktop/practical02CodeBlocks/MM2.0/receiver.h
+	<string>
 	"queue.h"
 	<SFML/Network.hpp>
 

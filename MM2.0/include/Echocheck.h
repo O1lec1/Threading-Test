@@ -6,11 +6,12 @@
 
 #include <chrono>
 #include <cstring>
-
+#include <condition_variable>
+#include <mutex>
 #include <thread>
 #include <string>
-
-
+#include <queue>
+#include "queue.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Network.hpp>
@@ -22,10 +23,14 @@
 class Echocheck
 {
     public:
+        std::vector<sf::IpAddress> Players;
+        sf::TcpSocket socketa;
+        Queue<std::string> messagequeue;
         int playercount;
         unsigned short port;
         void Client();
         void tcpserver();
+        void tcpserver(bool run);
         sf::TcpSocket tcpsocket;
         sf::UdpSocket socket;
         void closeout();

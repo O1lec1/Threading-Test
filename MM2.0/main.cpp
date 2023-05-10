@@ -9,7 +9,7 @@
 #include "receiver.h"
 #include <thread>
 #include <string>
-
+#include "queue.h"
 #include "Echocheck.h"
 
 
@@ -65,10 +65,16 @@ struct Car
 };
 //server setup
 Echocheck freshserver;
-        void servsetthread(){
-                freshserver.tcpserver();
-                std::cout<<"Server set\n";
-        }
+void servsetthread()
+{
+    freshserver.tcpserver();
+    std::cout<<"Server set\n";
+}
+void servsetthread2()
+{
+    freshserver.tcpserver(true);
+    std::cout<<"Server ffinished\n";
+}
 int main()
 {
     sf::UdpSocket socket;
@@ -144,7 +150,7 @@ int main()
 
         }
         std::cout<<freshserver.playercount<<" Players ... \n";
-            // Initialise
+        // Initialise
         srand(time(NULL));
         RenderWindow app(VideoMode(640, 480), "Car Racing Game!");
         app.setFramerateLimit(60);
@@ -255,6 +261,13 @@ int main()
                     }
                 }
             }
+            //Networking sync
+
+
+
+
+
+
             // Step 3: Render
             app.clear(Color::White);
             // TODO: Stay within the limit of the map.
