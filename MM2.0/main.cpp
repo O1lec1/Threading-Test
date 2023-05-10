@@ -112,6 +112,8 @@ std::cin>>choice1;
 if(choice1==1){
 Echocheck freshserver;
 freshserver.tcpserver();
+Echocheck newclient;
+newclient.Client();
 
 
 }

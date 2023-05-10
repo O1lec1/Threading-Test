@@ -22,6 +22,7 @@
 class Echocheck
 {
     public:
+        unsigned short port;
         void Client();
         void tcpserver();
         sf::TcpSocket tcpsocket;

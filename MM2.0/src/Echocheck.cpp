@@ -155,8 +155,15 @@ bool Echocheck::Clientin(int a){
 }
 //}
 //tcp pure manual
-
+void Echocheck::Client(){
+std::cout<<"Please enter the port that the server is using : " ;
+std::cin>>port;
+sf::IpAddress server ;
+std::cout<<"Please enter the IpAddress that the server is using : " ;
+std::cin>>server;
+}
 void Echocheck::tcpserver(){
+sf::IpAddress server = sf::IpAddress::LocalHost;
 std::cout<<sf::IpAddress::LocalHost<<" Host Ip\n";
 int randport=2000+(rand()%3000);
 std::cout<<randport<<" Host port\n";
