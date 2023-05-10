@@ -22,6 +22,7 @@
 class Echocheck
 {
     public:
+        int playercount;
         unsigned short port;
         void Client();
         void tcpserver();
